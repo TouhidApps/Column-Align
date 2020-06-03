@@ -6,6 +6,9 @@ This plugin will format your code by column, So it will increase code readabilit
 [Available on JetBrains Marketplace](https://plugins.jetbrains.com/plugin/14274)
 
 
+[Download JAR](https://raw.githubusercontent.com/TouhidApps/Column-Align/master/download/ColumnAlign.jar)
+
+
 ## WHY?
 1. This will increase code readability, you can understand your code faster.\
 2. As code lines are in column you can select and re-use your all variables from a same column by pressing alt key and drag mouse by column.
@@ -13,6 +16,9 @@ This plugin will format your code by column, So it will increase code readabilit
 ## USE: 
 Select multiple lines of similar code and press (ctrl + alt + k) or select "Column Align" option from Code menu.
 Make sure your selection starts from the beginning of any line. To consider as a column of ) or ; syntex you need to add a space before it to make them align in saperate column.
+
+### IDE Support?
+It supports Android Studio, IntelliJ IDEA and also other Intellij platform IDE. 
 
 ### Language Support?
 Any Language or even plain text with same number of column (Same number of words in a line) is possible to align.
