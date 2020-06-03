@@ -1,0 +1,51 @@
+<idea-plugin>
+    <id>com.touhidapps.column.align</id>
+    <name>Column Align</name>
+    <vendor email="app@touhidapps.com" url="https://touhidapps.com">Touhid Apps!</vendor>
+
+    <description><![CDATA[
+    <h3>Format your code by column</h3>
+    <p>This plugin will make format your code by column, So it will increase code readability</p>
+    <p><b>USE: </b>Select multiple lines of code and press (ctrl + alt + k) or select "Column Align" option from Code menu</p>
+    <p>Make sure your selection starts from the beginning of any line</p>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      <p>Keyboard shortcut added (ctrl + alt + k)</p>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="183.0"/>
+<!--    <idea-version since-build="194" until-build="194.*"/>-->
+
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products-->
+    <depends>com.intellij.modules.lang</depends>
+
+
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Group of my menu -->
+        <group id="ColumnAlign" text="Column Align" description="Make you code more readable by column align">
+            <action icon="/img/icon.png" class="com.touhidapps.align.StartingPoint" id="CodeColumnAlign.AlignAction" text="Column Align">
+                <add-to-group group-id="CodeMenu" anchor="first"/>
+
+                <mouse-shortcut keystroke="control button3 doubleClick" keymap="$default"/>
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt k"/>
+                <keyboard-shortcut keymap="Mac OS X" first-keystroke="ctrl alt k"/>
+                <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="ctrl alt k"/>
+            </action>
+        </group>
+
+
+    </actions>
+</idea-plugin>
