@@ -1,4 +1,4 @@
-# Column-Align
+# Column-Align Intellij IDE plugin
 Column Align Your Similar Code Lines
 
 This plugin will format your code by column, So it will increase code readability
