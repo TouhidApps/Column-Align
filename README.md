@@ -1,15 +1,22 @@
 # Column-Align Intellij IDE plugin
-Column Align Your Similar Code Lines
-
+Column Align Your Similar Code Lines\
 This plugin will format your code by column, So it will increase code readability
+
+
+[Available on JetBrains Marketplace](https://plugins.jetbrains.com/plugin/14274)
+
+
+## WHY?
+1. This will increase code readability, you can understand your code faster.\
+2. As code lines are in column you can select and re-use your all variables from a same column by pressing alt key and drag mouse by column.
+
 ## USE: 
 Select multiple lines of similar code and press (ctrl + alt + k) or select "Column Align" option from Code menu.
 Make sure your selection starts from the beginning of any line.
 
 ### Language Support?
 Any Language or even plain text with same number of column (Same number of words in a line) is possible to align.
-
-[Available on JetBrains Marketplace](https://plugins.jetbrains.com/plugin/14274)
+Screenshots are taken from a kotlin Android Studio project.
 
 ![Data Class Screenshot](https://raw.githubusercontent.com/TouhidApps/Column-Align/master/img/screenshot_1.png)
 ![Fragment Class Screenshot](https://raw.githubusercontent.com/TouhidApps/Column-Align/master/img/screenshot_2.png)
