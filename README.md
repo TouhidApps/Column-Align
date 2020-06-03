@@ -6,7 +6,7 @@ This plugin will format your code by column, So it will increase code readabilit
 [Available on JetBrains Marketplace](https://plugins.jetbrains.com/plugin/14274)
 
 
-[Download JAR](https://raw.githubusercontent.com/TouhidApps/Column-Align/master/download/ColumnAlign.jar)
+[Download ZIP](https://raw.githubusercontent.com/TouhidApps/Column-Align/master/download/ColumnAlign.zip)
 
 
 ## WHY?
