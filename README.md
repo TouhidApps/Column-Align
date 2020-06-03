@@ -12,7 +12,7 @@ This plugin will format your code by column, So it will increase code readabilit
 
 ## USE: 
 Select multiple lines of similar code and press (ctrl + alt + k) or select "Column Align" option from Code menu.
-Make sure your selection starts from the beginning of any line.
+Make sure your selection starts from the beginning of any line. To consider as a column of ) or ; syntex you need to add a space before it to make them align in saperate column.
 
 ### Language Support?
 Any Language or even plain text with same number of column (Same number of words in a line) is possible to align.
