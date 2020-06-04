@@ -6,7 +6,7 @@ This plugin will format your code by column, So it will increase code readabilit
 [Available on JetBrains Marketplace](https://plugins.jetbrains.com/plugin/14274)
 
 
-[Download ZIP](https://raw.githubusercontent.com/TouhidApps/Column-Align/master/download/ColumnAlign.zip) (Extract if download ZIP to get JAR file)
+[Download ZIP](https://raw.githubusercontent.com/TouhidApps/Column-Align/master/download/ColumnAlign.zip) (Extract ZIP to get JAR file)
 
 
 ## WHY?
@@ -17,11 +17,11 @@ This plugin will format your code by column, So it will increase code readabilit
 Select multiple lines of similar code and press (ctrl + alt + k) or select "Column Align" option from Code menu.
 Make sure your selection starts from the beginning of any line. To consider as a column of ) or ; syntex you need to add a space before it to make them align in saperate column.
 
-### IDE Support?
+### IDE Support:
 It supports Android Studio, IntelliJ IDEA and also other Intellij platform IDE. 
 
-### Language Support?
-Any Language or even plain text with same number of column (Same number of words in a line) is possible to align.
+### Language Support:
+Any Language or even plain text with same number of column (Same number of words in multiple lines) is possible to align.
 Screenshots are taken from a kotlin Android Studio project.
 
 ![Data Class Screenshot](https://raw.githubusercontent.com/TouhidApps/Column-Align/master/img/screenshot_1.png)
