@@ -107,7 +107,7 @@ class MyStringProcess {
                             mSpace += specialChar
                         }
 
-                        println(mSpace + " inside $indexOfRow, column $indexOfColumn, len: $len")
+                        println("$mSpace inside $indexOfRow, column $indexOfColumn, len: $len")
 
                         // Find new column item count for each loop
 //                    var cItem = perRow.split(" ")[index1]
@@ -131,7 +131,7 @@ class MyStringProcess {
 
         printRes(t)
 
-//    Replace spectial char to space
+//    Replace special char to space
         t.forEachIndexed { index, str ->
             t.set(index, str.replace(specialChar, " "))
         }
