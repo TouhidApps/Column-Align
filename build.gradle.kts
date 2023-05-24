@@ -1,26 +1,28 @@
 plugins {
-    id 'org.jetbrains.intellij' version '0.4.20'
-    id 'org.jetbrains.kotlin.jvm' version '1.3.72'
+    id("java")
+    id("org.jetbrains.kotlin.jvm") version "1.7.10"
+    id("org.jetbrains.intellij") version "1.8.0"
 }
 
-group 'com.touhidapps.align'
-version '1.6.0'
+group "com.touhidapps.align"
+version "1.6.0"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
-publishPlugin {
-    channels 'Stable'
-}
+
+//publishPlugin {
+//    channels = "Stable"
+//}
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-        updateSinceUntilBuild false
+     //   updateSinceUntilBuild = false
 //    version '2019.1'   
 
 }
@@ -44,16 +46,21 @@ intellij {
 //    // The "Contents" directory is macOS specific.
 //    ideDirectory '/Applications/Android Studio.app/Contents'
 //}
+intellij {
+    version.set("2021.3.3")
+    type.set("IC") // Target IDE Platform
 
-
-compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
-}
-compileTestKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+    plugins.set(listOf(/* Plugin Dependencies */))
 }
 
+//compileKotlin {
+//    kotlinOptions.jvmTarget = "11"
+//}
+//compileTestKotlin {
+//    kotlinOptions.jvmTarget = "11"
+//}
 
-publishPlugin {
-    token intellijPublishToken
-}
+
+//publishPlugin {
+//    token = intellijPublishToken
+//}

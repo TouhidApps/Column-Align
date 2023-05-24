@@ -3,7 +3,6 @@ package com.touhidapps.align
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-
 class MyStringProcess {
 
     /**
@@ -100,7 +99,7 @@ class MyStringProcess {
                 try {
                     if (len < maxLengthOfColumn) {
                         // How much space need
-                        var spc = maxLengthOfColumn - len
+                        val spc = maxLengthOfColumn - len
                         // Generate space
 
                         for (i in 1..spc) {
@@ -113,7 +112,7 @@ class MyStringProcess {
 //                    var cItem = perRow.split(" ")[index1]
                         println("Per row: $perRow")
 
-                        t.set(indexOfRow, perRow.insert(len, mSpace)) // todo insert perfectly
+                        t[indexOfRow] = perRow.insert(len, mSpace)
 
                     }
 
@@ -133,7 +132,7 @@ class MyStringProcess {
 
 //    Replace special char to space
         t.forEachIndexed { index, str ->
-            t.set(index, str.replace(specialChar, " "))
+            t[index] = str.replace(specialChar, " ")
         }
         printRes(t)
 
@@ -172,7 +171,7 @@ class MyStringProcess {
     } // getMaxLengthOfColumn
 
 
-    fun String.insert(index: Int, string: String): String {
+    private fun String.insert(index: Int, string: String): String {
         println("\n")
         println("Replace String: $string")
         println("Main String: $this")
@@ -183,7 +182,7 @@ class MyStringProcess {
         return updatedString
     }
 
-    fun printRes(ar: ArrayList<String>) {
+    private fun printRes(ar: ArrayList<String>) {
         println("\n=============== RESULT ==================")
         ar.forEach {
             println(it)

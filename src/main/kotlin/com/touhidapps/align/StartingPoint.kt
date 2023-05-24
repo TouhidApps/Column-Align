@@ -1,5 +1,6 @@
 package com.touhidapps.align
 
+import com.intellij.ide.DataManager
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
@@ -19,6 +20,16 @@ class StartingPoint : AnAction() {
         val editor: Editor? = e.getData(PlatformDataKeys.EDITOR)
         val project: Project? = e.getRequiredData(CommonDataKeys.PROJECT)
 
+        // select full line if half selected
+        editor?.selectionModel?.selectionStartPosition?.line?.let { posStart ->
+            editor?.selectionModel?.selectionEndPosition?.line?.let { posEnd ->
+                editor?.visualPositionToOffset(VisualPosition(posStart, 0))?.let {  startOffset ->
+                    editor?.document?.getLineEndOffset(posEnd)?.let {  endOffset ->
+                        editor?.selectionModel?.setSelection(startOffset, endOffset)
+                    }
+                }
+            }
+        }
 
         editor?.selectionModel?.selectedText?.let {
             println("$it")
