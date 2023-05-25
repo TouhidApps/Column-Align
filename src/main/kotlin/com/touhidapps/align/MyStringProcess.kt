@@ -5,14 +5,6 @@ import java.util.regex.Pattern
 
 class MyStringProcess {
 
-    /**
-     * TODO
-     *
-     * Make multiple space inside code convert to single space
-     * Get full line if selected half line
-     *
-     */
-
     fun getResultAlignedArray(myMultiLineString: String): ArrayList<String> {
 
         if (!myMultiLineString.contains("\n")) {
@@ -21,14 +13,14 @@ class MyStringProcess {
 
         // Check any array item starts with white space or not
         val rmvEmptyLineArray = removeEmptyLineFromArray(myMultiLineString.split("\n"))
-
         val mData = getAllPreSpacesEqual(rmvEmptyLineArray)
-
-
-        val specialChar = "#"
+        val specialChars = hashMapOf<Char, Char>().apply {
+            put(' ', '⍛')
+            put(':', '⏧')
+            put('=', '〄')
+        }
         val s = arrayListOf<String>()
         val t = arrayListOf<String>()
-
 
         // Insert special character to string value (inside of double quote) part to ignore formatting them
         mData.forEachIndexed { index, str ->
@@ -41,21 +33,22 @@ class MyStringProcess {
                 val m: Matcher = p.matcher(str)
 
                 while (m.find()) { // If multiple section of double quote it will loop
-
-                    val a = m.group(0).replace(" ", "#")
-
-                    println(a + "--" + m.start() + "--" + m.end())
-
+                    val a = m.group(0)
+                        .replace(specialChars.keys.elementAt(0), specialChars[specialChars.keys.elementAt(0)]!!)
+                        .replace(specialChars.keys.elementAt(1), specialChars[specialChars.keys.elementAt(1)]!!)
+                        .replace(specialChars.keys.elementAt(2), specialChars[specialChars.keys.elementAt(2)]!!)
                     mStr = str.replaceRange(m.start(), m.end(), a)
-
                 }
+
             }
+
+//            mStr = mStr.replace(":", " : ")
+//                .replace("=", " = ")
 
             s.add(mStr)
             t.add(mStr)
 
         }
-
 
         // Find most space contained string
         var mostSpaceString = ""
@@ -64,27 +57,21 @@ class MyStringProcess {
             if (index == 0) {
                 mostSpaceString = item
             } else {
-                if (s[index - 1].split(" ").count() < item.split(" ").count()) {
+                if (s[index - 1].split(' ').count() < item.split(' ').count()) {
                     mostSpaceString = item
                 }
             }
         }
 
-        //    println(mostSpaceString)
-        //    println(bigIndex)
-
-
         // By column, used max column contained string
         // This is only to get max index (to get column) with loop
-        mostSpaceString.split(" ").forEachIndexed { indexOfColumn, columnText ->
+        mostSpaceString.split(' ').forEachIndexed { indexOfColumn, columnText ->
 
             t.forEachIndexed { indexOfRow, perRow -> // how much row that much loop to insert space
 
                 val maxLengthOfColumn = getMaxLengthOfColumn(t, indexOfColumn)
-
                 // Set space by column
                 var mSpace = " "
-
                 var len = 0 // find space insert position (char of each column + which column = len)
                 try {
                     for (ii in 0..indexOfColumn) {
@@ -101,30 +88,17 @@ class MyStringProcess {
                         // How much space need
                         val spc = maxLengthOfColumn - len
                         // Generate space
-
                         for (i in 1..spc) {
-                            mSpace += specialChar
+                            mSpace += specialChars[specialChars.keys.elementAt(0)]!!
                         }
-
-                        println("$mSpace inside $indexOfRow, column $indexOfColumn, len: $len")
-
                         // Find new column item count for each loop
-//                    var cItem = perRow.split(" ")[index1]
-                        println("Per row: $perRow")
-
                         t[indexOfRow] = perRow.insert(len, mSpace)
-
                     }
-
                 } catch (e: IndexOutOfBoundsException) {
                     println(e.message)
                 }
 
             }
-
-
-
-            println("================================= Cycle END of: $indexOfColumn")
 
         }
 
@@ -132,7 +106,10 @@ class MyStringProcess {
 
 //    Replace special char to space
         t.forEachIndexed { index, str ->
-            t[index] = str.replace(specialChar, " ")
+            t[index] = str
+                .replace(specialChars[specialChars.keys.elementAt(0)]!!, specialChars.keys.elementAt(0))
+                .replace(specialChars[specialChars.keys.elementAt(1)]!!, specialChars.keys.elementAt(1))
+                .replace(specialChars[specialChars.keys.elementAt(2)]!!, specialChars.keys.elementAt(2))
         }
         printRes(t)
 
@@ -163,23 +140,13 @@ class MyStringProcess {
         }
 
         maxLengthOfColumn += indexOfColumn // to add space in length
-
-        println("Column $indexOfColumn Max Length: ${maxLengthOfColumn}")
-
         return maxLengthOfColumn
 
     } // getMaxLengthOfColumn
 
 
     private fun String.insert(index: Int, string: String): String {
-        println("\n")
-        println("Replace String: $string")
-        println("Main String: $this")
-        println("Insert Position: $index")
-        val updatedString = this.substring(0, index) + string + this.substring(index, this.length).trim()
-        println("Updated String: $updatedString")
-        println("\n")
-        return updatedString
+        return substring(0, index) + string + substring(index, length).trim()
     }
 
     private fun printRes(ar: ArrayList<String>) {
@@ -221,37 +188,17 @@ class MyStringProcess {
         // After keeping all pre white space we need to remove multiple white space inside code
         tempMyStringArray.addAll(removeMultiWhiteSpaceOfCode(myStringArray))
 
-
-
-        // If all space are same size then no need to add max size of space
-//        if (isAllAreSameItem(whiteSpaceKeeper)) {
-//            return tempMyStringArray // TODO if all has no space before code
-//        }
-
         // Add max size of pre white space in all array item
         whiteSpaceKeeper.max()?.let { maxAmountOfSpace ->
 
-//            myStringArray.forEachIndexed { index, s ->
-//                tempMyStringArray[index] = if (whiteSpaceKeeper[index].isNotEmpty()) {
-//                    s.replace(whiteSpaceKeeper[index], maxAmountOfSpace)
-//                } else {
-//                    maxAmountOfSpace + s
-//                }
-//            }
-
             val p = arrayListOf<String>()
             tempMyStringArray.forEachIndexed { index, s ->
-
                 p.add(maxAmountOfSpace + s)
-
             }
-
             tempMyStringArray.clear()
             tempMyStringArray.addAll(p)
 
         }
-
-
 
         return tempMyStringArray
 
@@ -261,31 +208,9 @@ class MyStringProcess {
 
         val tempArray = arrayListOf<String>()
         tempArray.addAll(myStringArray.filterNot { it == "" })
-
         return tempArray
 
     } // removeEmptyLineFromArray
-
-    /**
-     * To check all array item are same or not
-     */
-    @Deprecated("This is no longer needed as we are trimming the code in removeMultiWhiteSpaceOfCode() method")
-    private fun isAllAreSameItem(myStringArray: List<String>): Boolean {
-        var allAreSame = true
-
-        myStringArray.forEachIndexed { index, s ->
-
-            if (index != 0) { // As first loop has nothing to compare
-                if (myStringArray[index - 1] != s) {
-                    allAreSame = false
-                    return@forEachIndexed
-                }
-            }
-
-        }
-
-        return allAreSame
-    } // isAllAreSameItem
 
     /**
      * This method will remove multiple white space of code except double quote part

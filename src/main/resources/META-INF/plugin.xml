@@ -11,7 +11,7 @@
     ]]></description>
 
     <change-notes><![CDATA[
-      <p>Keyboard shortcut added (ctrl + alt + k)</p>
+      <p>Keyboard shortcut added (ctrl + alt + k)<br>Improved selection and bug fix</p>
     ]]>
     </change-notes>
 
@@ -37,7 +37,7 @@
     <actions>
         <!-- Group of my menu -->
         <group id="ColumnAlign" text="Column Align" description="Make you code more readable by column align">
-            <action icon="/img/icon.png" class="com.touhidapps.align.StartingPoint" id="CodeColumnAlign.AlignAction" text="Column Align">
+            <action icon="/img/icon.svg" class="com.touhidapps.align.StartingPoint" id="CodeColumnAlign.AlignAction" text="Column Align">
                 <add-to-group group-id="CodeMenu" anchor="first"/>
 
                 <mouse-shortcut keystroke="control button3 doubleClick" keymap="$default"/>
