@@ -26,7 +26,7 @@ It supports Android Studio, IntelliJ IDEA and also other Intellij platform IDE.
 
 ### Language Support:
 Any Language or even plain text with same number of column (Same number of words in multiple lines) is possible to align.
-Screenshots are taken from a kotlin Android Studio project.
+Screenshots are taken from a kotlin Android Studio & IDEA IDE.
 
 ![Tutorial GIF](https://raw.githubusercontent.com/TouhidApps/Column-Align/master/img/column_align_preview.gif)
 ![Data Class Screenshot](https://raw.githubusercontent.com/TouhidApps/Column-Align/master/img/screenshot_1.png)
