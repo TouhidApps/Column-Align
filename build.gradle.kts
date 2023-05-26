@@ -1,11 +1,13 @@
+fun properties(key: String) = project.findProperty(key).toString()
+
 plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.7.10"
     id("org.jetbrains.intellij") version "1.8.0"
 }
 
-group "com.touhidapps.align"
-version "1.6.0"
+group = "com.touhidapps.align"
+version = "1.6.2"
 
 repositories {
     mavenCentral()
@@ -21,11 +23,11 @@ dependencies {
 //}
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
-intellij {
+//intellij {
      //   updateSinceUntilBuild = false
 //    version '2019.1'   
 
-}
+//}
 
 
 
@@ -46,21 +48,38 @@ intellij {
 //    // The "Contents" directory is macOS specific.
 //    ideDirectory '/Applications/Android Studio.app/Contents'
 //}
+
 intellij {
+//    version.set("2019.1.4")
     version.set("2021.3.3")
-    type.set("IC") // Target IDE Platform
+//    type.set("IC") // Target IDE Platform
 
     plugins.set(listOf(/* Plugin Dependencies */))
 }
 
-//compileKotlin {
-//    kotlinOptions.jvmTarget = "11"
-//}
-//compileTestKotlin {
-//    kotlinOptions.jvmTarget = "11"
-//}
+tasks {
+    buildSearchableOptions {
+        enabled = false
+    }
+
+    patchPluginXml {
+        version.set("${project.version}")
+        sinceBuild.set("222")
+        untilBuild.set("231.*")
+    }
+
+    compileKotlin {
+        kotlinOptions.jvmTarget = "11"
+    }
+
+    compileTestKotlin {
+        kotlinOptions.jvmTarget = "11"
+    }
+
+    publishPlugin {
+        token.set(properties("intellijPublishToken"))
+    }
+
+}
 
 
-//publishPlugin {
-//    token = intellijPublishToken
-//}
