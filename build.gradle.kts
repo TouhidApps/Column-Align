@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.touhidapps.align"
-version = "1.6.2"
+version = "1.6.3"
 
 repositories {
     mavenCentral()
@@ -16,38 +16,6 @@ repositories {
 dependencies {
 //    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
-
-
-//publishPlugin {
-//    channels = "Stable"
-//}
-
-// See https://github.com/JetBrains/gradle-intellij-plugin/
-//intellij {
-     //   updateSinceUntilBuild = false
-//    version '2019.1'   
-
-//}
-
-
-
-
-//// See https://github.com/JetBrains/gradle-intellij-plugin/
-//intellij {
-//    //    updateSinceUntilBuild false
-//    // Define IntelliJ Platform against which to build the plugin project.
-//    version '192.7142.36'  // Same IntelliJ IDEA version (2019.1.4) as target 3.5 Android Studio   
-//    type 'IC'              // Use IntelliJ IDEA CE because it's the basis of the IntelliJ Platform   
-//    // Require the Android plugin, Gradle will match the plugin version to intellij.version 
-//    plugins 'android'
-//      updateSinceUntilBuild = false
-//}
-//
-//runIde {
-//    // Absolute path to installed target 3.5 Android Studio to use as IDE Development Instance
-//    // The "Contents" directory is macOS specific.
-//    ideDirectory '/Applications/Android Studio.app/Contents'
-//}
 
 intellij {
 //    version.set("2019.1.4")
@@ -64,8 +32,8 @@ tasks {
 
     patchPluginXml {
         version.set("${project.version}")
-        sinceBuild.set("222")
-        untilBuild.set("231.*")
+//        sinceBuild.set("213")
+//        untilBuild.set("231.*")
     }
 
     compileKotlin {

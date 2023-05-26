@@ -8,7 +8,10 @@ This plugin will format your code by column, So it will increase code readabilit
 
 [Download ZIP](https://raw.githubusercontent.com/TouhidApps/Column-Align/master/download/ColumnAlign.zip) (Extract ZIP to get JAR file)
 
-<iframe width="384px" height="319px" src="https://plugins.jetbrains.com/embeddable/card/14274"></iframe>
+<div>
+<iframe width="384px" height="319px" src="https://plugins.jetbrains.com/embeddable/card/14274">
+</iframe>
+</div>
 
 ## WHY?
 1. This will increase code readability, you can understand your code faster.\
