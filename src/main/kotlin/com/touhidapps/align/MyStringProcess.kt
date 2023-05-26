@@ -16,8 +16,8 @@ class MyStringProcess {
         val mData = getAllPreSpacesEqual(rmvEmptyLineArray)
         val specialChars = hashMapOf<Char, Char>().apply {
             put(' ', '⍛')
-            put(':', '⏧')
-            put('=', '〄')
+//            put(':', '⏧')
+//            put('=', '⏢')
         }
         val s = arrayListOf<String>()
         val t = arrayListOf<String>()
@@ -35,15 +35,12 @@ class MyStringProcess {
                 while (m.find()) { // If multiple section of double quote it will loop
                     val a = m.group(0)
                         .replace(specialChars.keys.elementAt(0), specialChars[specialChars.keys.elementAt(0)]!!)
-                        .replace(specialChars.keys.elementAt(1), specialChars[specialChars.keys.elementAt(1)]!!)
-                        .replace(specialChars.keys.elementAt(2), specialChars[specialChars.keys.elementAt(2)]!!)
+//                        .replace(specialChars.keys.elementAt(1), specialChars[specialChars.keys.elementAt(1)]!!)
+//                        .replace(specialChars.keys.elementAt(2), specialChars[specialChars.keys.elementAt(2)]!!)
                     mStr = str.replaceRange(m.start(), m.end(), a)
                 }
 
             }
-
-//            mStr = mStr.replace(":", " : ")
-//                .replace("=", " = ")
 
             s.add(mStr)
             t.add(mStr)
@@ -108,8 +105,8 @@ class MyStringProcess {
         t.forEachIndexed { index, str ->
             t[index] = str
                 .replace(specialChars[specialChars.keys.elementAt(0)]!!, specialChars.keys.elementAt(0))
-                .replace(specialChars[specialChars.keys.elementAt(1)]!!, specialChars.keys.elementAt(1))
-                .replace(specialChars[specialChars.keys.elementAt(2)]!!, specialChars.keys.elementAt(2))
+//                .replace(specialChars[specialChars.keys.elementAt(1)]!!, specialChars.keys.elementAt(1))
+//                .replace(specialChars[specialChars.keys.elementAt(2)]!!, specialChars.keys.elementAt(2))
         }
         printRes(t)
 
@@ -149,14 +146,6 @@ class MyStringProcess {
         return substring(0, index) + string + substring(index, length).trim()
     }
 
-    private fun printRes(ar: ArrayList<String>) {
-        println("\n=============== RESULT ==================")
-        ar.forEach {
-            println(it)
-        }
-        println("================= END ====================\n")
-    } // printRes
-
     /**
      * This method will make all white spaces equal before of all string
      */
@@ -164,7 +153,6 @@ class MyStringProcess {
 
         // Keep all white space in another array
         // to manage starting indent spaces
-
         val whiteSpaceKeeper = arrayListOf<String>()
 
         myStringArray.forEachIndexed { index, s ->
@@ -233,7 +221,7 @@ class MyStringProcess {
             }
 
             // Add pre white space for indentation
-            myResult = myResult
+         //   myResult = myResult
             resultArr.add(myResult)
         }
 
@@ -241,5 +229,12 @@ class MyStringProcess {
 
     } // removeMultiWhiteSpaceOfCode
 
+    private fun printRes(ar: ArrayList<String>) {
+        println("\n=============== RESULT ==================")
+        ar.forEach {
+            println(it)
+        }
+        println("================= END ====================\n")
+    } // printRes
 
 }
