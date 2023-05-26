@@ -8,7 +8,7 @@ This plugin will format your code by column, So it will increase code readabilit
 [Download ZIP](https://raw.githubusercontent.com/TouhidApps/Column-Align/master/download/ColumnAlign.zip) (Extract ZIP to get JAR file)
 
 ## WHY?
-1. This will increase code readability, you can understand your code faster.\
+1. This will increase code readability, you can understand your code faster.
 2. As code lines are in column you can select and re-use your all variables from a same column by pressing alt key and drag mouse by column.
 
 ## USE: 
