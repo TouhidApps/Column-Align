@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.touhidapps.align"
-version = "1.6.3"
+version = "1.6.4"
 
 repositories {
     mavenCentral()
@@ -18,8 +18,8 @@ dependencies {
 }
 
 intellij {
-//    version.set("2019.1.4")
-    version.set("2021.3.3")
+//    version.set("LATEST-EAP-SNAPSHOT")
+    version.set("2022.1.1")
 //    type.set("IC") // Target IDE Platform
 
     plugins.set(listOf(/* Plugin Dependencies */))
@@ -32,7 +32,7 @@ tasks {
 
     patchPluginXml {
         version.set("${project.version}")
-//        sinceBuild.set("213")
+        sinceBuild.set("213")
 //        untilBuild.set("231.*")
     }
 
@@ -46,6 +46,17 @@ tasks {
 
     publishPlugin {
         token.set(properties("intellijPublishToken"))
+    }
+
+    runIde {
+        // Absolute path to the installed targetIDE to use as IDE Development
+        // Instance (the "Contents" directory is macOS specific):
+        ideDir.set(file("/Applications/Android Studio.app/Contents")) ///Applications/Android\ Studio.app/Contents
+    }
+
+    runPluginVerifier {
+        ideVersions.addAll("IC-222.4167.29", "AI-222.4167.29")
+        downloadDir.set(System.getProperty("user.home") + "/.pluginVerifier/ides")
     }
 
 }
